@@ -110,3 +110,4 @@ imap <C-l> <space>=><space>
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 let g:rubycomplete_rails = 1
+au BufNewFile,BufRead *.erubis set filetype=eruby
