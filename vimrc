@@ -107,11 +107,9 @@ imap <C-l> <space>=><space>
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 " autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
+" A little help for the filetype detection
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-
-let g:rubycomplete_rails = 1
-au BufNewFile,BufRead *.erubis set filetype=eruby
-
+au BufRead,BufNewFile *.erubis set filetype=eruby
 
 " Window management
 nnoremap <leader>w <C-w>v<C-w>l
@@ -119,3 +117,10 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" Misc
+nnoremap <leader>ev <C-w>v<C-w>l:e $MYVIMRC<cr>
+inoremap jj <ESC>
+nnoremap <leader><space> :nohl<cr>
+let g:rubycomplete_rails = 1
+set relativenumber
