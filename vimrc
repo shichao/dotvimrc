@@ -111,3 +111,11 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 let g:rubycomplete_rails = 1
 au BufNewFile,BufRead *.erubis set filetype=eruby
+
+
+" Window management
+nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
