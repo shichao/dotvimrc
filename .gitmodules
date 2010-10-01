@@ -19,3 +19,9 @@
 [submodule "bundle/textile"]
 	path = bundle/textile
 	url = http://github.com/robertwahler/textile.vim.git
+[submodule "bundle/bufexplorer"]
+	path = bundle/bufexplorer
+	url = git://github.com/markabe/bufexplorer.git
+[submodule "bundle/msanders-cocoa"]
+	path = bundle/msanders-cocoa
+	url = http://github.com/msanders/cocoa.vim.git
