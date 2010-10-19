@@ -32,7 +32,7 @@ set wildmode=list:longest         " Complete files like a shell.
 set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
 
-set number                        " Show line numbers.
+set relativenumber                " Show relative line numbers.
 set ruler                         " Show cursor position.
 
 set incsearch                     " Highlight matches as you type.
@@ -43,7 +43,7 @@ set scrolloff=3                   " Show 3 lines of context around the cursor.
 set linebreak
 set formatoptions=tq
 set wrapmargin=4
-set textwidth=120
+set textwidth=72
 
 set title                         " Set the terminal's title
 
@@ -120,7 +120,10 @@ nnoremap <C-l> <C-w>l
 
 " Misc
 nnoremap <leader>ev <C-w>v<C-w>l:e $MYVIMRC<cr>
-inoremap jj <ESC>
 nnoremap <leader><space> :nohl<cr>
+nnoremap <leader>nf :NERDTreeFind<cr>
+inoremap jj <ESC>
 let g:rubycomplete_rails = 1
-set relativenumber
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+map <leader>c :!ruby -c %<CR>
