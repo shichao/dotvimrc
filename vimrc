@@ -127,3 +127,4 @@ let g:rubycomplete_rails = 1
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 map <leader>c :!ruby -c %<CR>
+map <F4> :BufExplorer<CR>
