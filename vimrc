@@ -128,3 +128,4 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 map <leader>c :!ruby -c %<CR>
 map <F4> :BufExplorer<CR>
+map <F1> :CommandT<CR>
