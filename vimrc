@@ -64,7 +64,7 @@ set smartindent
 
 set shell=/bin/bash               " Some commands seem to have problems with zsh"
 
-set wildignore+=vendor,log,tmp,*.swp
+set wildignore+=vendor,log,tmp,*.swp,.git,gems,.bundle,Gemfile.lock,.gem,.rvmrc
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 " Or use vividchalk
@@ -124,8 +124,10 @@ nnoremap <leader><space> :nohl<cr>
 nnoremap <leader>nf :NERDTreeFind<cr>
 inoremap jj <ESC>
 let g:rubycomplete_rails = 1
+let g:CommandTMaxHeight=20
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 map <leader>c :!ruby -c %<CR>
 map <F4> :BufExplorer<CR>
 map <F1> :CommandT<CR>
+map <F2> :let @* = expand("%:p")"<CR>
