@@ -25,6 +25,15 @@
 [submodule "bundle/msanders-cocoa"]
 	path = bundle/msanders-cocoa
 	url = http://github.com/msanders/cocoa.vim.git
+[submodule "bundle/davidoc-taskpaper-vim"]
+	path = bundle/davidoc-taskpaper-vim
+	url = http://github.com/davidoc/taskpaper.vim.git
+[submodule "bundle/astashov-vim-ruby-debugger"]
+	path = bundle/astashov-vim-ruby-debugger
+	url = git://github.com/astashov/vim-ruby-debugger.git
+[submodule "bundle/fholgado-minibufexpl"]
+	path = bundle/fholgado-minibufexpl
+	url = git://github.com/fholgado/minibufexpl.vim.git
 [submodule "bundle/command-t"]
 	path = bundle/command-t
-	url = https://github.com/wincent/Command-T.git
+	url = git://git.wincent.com/command-t.git
