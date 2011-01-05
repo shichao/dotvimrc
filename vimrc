@@ -34,7 +34,6 @@ set smartcase                     " But case-sensitive if expression contains a 
 
 set relativenumber                " Show relative line numbers.
 set ruler                         " Show cursor position.
-set relativenumber
 
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
