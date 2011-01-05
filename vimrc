@@ -125,6 +125,7 @@ nnoremap <leader>nf :NERDTreeFind<cr>
 inoremap jj <ESC>
 let g:rubycomplete_rails = 1
 let g:CommandTMaxHeight=20
+let g:yankring_history_file = '.yankring_history'
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 map <leader>c :!ruby -c %<CR>
@@ -133,3 +134,4 @@ map <F2> :NERDTreeFind<CR>
 map <F3> :TMiniBufExplorer<CR>
 map <F4> :BufExplorer<CR>
 map <F5> :let @* = expand("%:p")"<CR>
+set clipboard=unnamed
