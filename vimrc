@@ -1,12 +1,9 @@
-" Copy or symlink to ~/.vimrc or ~/_vimrc.
-
-set nocompatible                  " Must come first because it changes other options.
 
 
 map <Leader>m <Plug>MakeGreen
 let g:rubytest_in_quickfix = 1
-let g:LustyJugglerSuppressRubyWarning = 1
 let g:erlangHighlightBif = 1
+let delimitMate_balance_matchpairs = 1
 
 silent! call pathogen#runtime_append_all_bundles()
 
@@ -66,9 +63,11 @@ set shell=/bin/bash               " Some commands seem to have problems with zsh
 
 set wildignore+=vendor,log,tmp,*.swp,.git,gems,.bundle,Gemfile.lock,.gem,.rvmrc
 " Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
-" Or use vividchalk
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}\ %{SyntasticStatuslineFlag()}%=%-16(\ %l,%c-%v\ %)%P
+
+" Color mappings.
 colorscheme github
+highlight SpellBad term=reverse ctermfg=White ctermbg=Red gui=undercurl guisp=Red
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -84,6 +83,8 @@ map <leader>T :CommandT<cr>
 map <Leader>r <Plug>RubyTestRun " change from <Leader>t to <Leader>\
 map <Leader>R <Plug>RubyFileRun " change from <Leader>T to <Leader>]
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+map <leader>b :FufBuffer<cr>
+
 "
 " Get rid of awkward Ex-mode
 map Q <Esc>
@@ -119,10 +120,15 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Misc
+au FileType markdown,textile setlocal spell spelllang=en_us
+au InsertEnter * hi StatusLine ctermbg=16 ctermfg=1
+au InsertLeave * hi StatusLine ctermbg=16 ctermfg=8
+
 nnoremap <leader>ev <C-w>v<C-w>l:e $MYVIMRC<cr>
 nnoremap <leader><space> :nohl<cr>
 nnoremap <leader>nf :NERDTreeFind<cr>
 inoremap jj <ESC>
+
 let g:rubycomplete_rails = 1
 let g:CommandTMaxHeight=20
 let g:yankring_history_file = '.yankring_history'

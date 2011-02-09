@@ -49,3 +49,6 @@
 [submodule "bundle/ack"]
 	path = bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "bundle/scrooloose-syntastic"]
+	path = bundle/scrooloose-syntastic
+	url = git://github.com/scrooloose/syntastic.git
