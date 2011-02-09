@@ -16,9 +16,6 @@
 [submodule "bundle/tpope-vim-rake"]
 	path = bundle/tpope-vim-rake
 	url = git://github.com/tpope/vim-rake.git
-[submodule "bundle/textile"]
-	path = bundle/textile
-	url = http://github.com/robertwahler/textile.vim.git
 [submodule "bundle/bufexplorer"]
 	path = bundle/bufexplorer
 	url = git://github.com/markabe/bufexplorer.git
