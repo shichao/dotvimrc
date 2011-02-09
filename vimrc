@@ -137,7 +137,8 @@ match ExtraWhitespace /\s\+$/
 map <leader>c :!ruby -c %<CR>
 map <F1> :CommandT<CR>
 map <F2> :NERDTreeFind<CR>
-map <F3> :TMiniBufExplorer<CR>
+" map <F3> :TMiniBufExplorer<CR>
 map <F4> :BufExplorer<CR>
 map <F5> :let @* = expand("%:p")"<CR>
 set clipboard=unnamed
+nmap Q gqap<CR>
