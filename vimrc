@@ -89,7 +89,7 @@ map Q <Esc>
 imap <C-l> <space>=><space>
 
 " User return key to make highlighted search results disappear
-nnoremap <CR> :nohlsearch<CR>/<BS>
+" nnoremap <CR> :nohlsearch<CR>/<BS>
 
 " Controversial...swap colon and semicolon for easier commands
 "nnoremap ; :
