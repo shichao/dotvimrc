@@ -49,3 +49,15 @@
 [submodule "bundle/scrooloose-syntastic"]
 	path = bundle/scrooloose-syntastic
 	url = git://github.com/scrooloose/syntastic.git
+[submodule "bundle/greyblake-vim-preview"]
+	path = bundle/greyblake-vim-preview
+	url = git://github.com/greyblake/vim-preview.git
+[submodule "bundle/ecomba-vim-ruby-refactoring"]
+	path = bundle/ecomba-vim-ruby-refactoring
+	url = git://github.com/ecomba/vim-ruby-refactoring.git
+[submodule "bundle/gregsexton-vimcalc"]
+	path = bundle/gregsexton-vimcalc
+	url = git://github.com/gregsexton/VimCalc.git
+[submodule "bundle/tpope-vim-fugitive"]
+	path = bundle/tpope-vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git

@@ -4,6 +4,7 @@ map <Leader>m <Plug>MakeGreen
 let g:rubytest_in_quickfix = 1
 let g:erlangHighlightBif = 1
 let delimitMate_balance_matchpairs = 1
+let g:PreviewBrowsers='open'
 
 silent! call pathogen#runtime_append_all_bundles()
 
@@ -48,7 +49,7 @@ set visualbell                    " No beeping.
 
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
-set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+set directory=$HOME/.vim/tmp/,.  " Keep swap files in one location
 
 " UNCOMMENT TO USE
 set tabstop=2                    " Global tab width.
@@ -65,34 +66,30 @@ set wildignore+=vendor,log,tmp,*.swp,.git,gems,.bundle,Gemfile.lock,.gem,.rvmrc
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}\ %{SyntasticStatuslineFlag()}%=%-16(\ %l,%c-%v\ %)%P
 
+set pastetoggle=<F2>
+
 " Color mappings.
 colorscheme github
 highlight SpellBad term=reverse ctermfg=White ctermbg=Red gui=undercurl guisp=Red
 
-" Tab mappings.
-map <leader>tt :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>to :tabonly<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabprevious<cr>
-map <leader>tf :tabfirst<cr>
-map <leader>tl :tablast<cr>
-map <leader>tm :tabmove
-map <leader>T :CommandT<cr>
+map <leader>t :CommandT<cr>
 map <Leader>r <Plug>RubyTestRun " change from <Leader>t to <Leader>\
 map <Leader>R <Plug>RubyFileRun " change from <Leader>T to <Leader>]
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 map <leader>b :FufBuffer<cr>
 
+" Yank to clipboard
+map <leader>y "+y
+
 "
 " Get rid of awkward Ex-mode
 map Q <Esc>
 
+" Ruby's hashrocket
 imap <C-l> <space>=><space>
 
-" Uncomment to use Jamis Buck's file opening plugin
-"map <Leader>t :FuzzyFinderTextMate<Enter>
+" User return key to make highlighted search results disappear
+nnoremap <CR> :nohlsearch<CR>/<BS>
 
 " Controversial...swap colon and semicolon for easier commands
 "nnoremap ; :
@@ -123,6 +120,24 @@ nnoremap <C-l> <C-w>l
 au FileType markdown,textile setlocal spell spelllang=en_us
 au InsertEnter * hi StatusLine ctermbg=16 ctermfg=1
 au InsertLeave * hi StatusLine ctermbg=16 ctermfg=8
+au InsertEnter * hi StatusLine ctermbg=white ctermfg=darkred
+au InsertLeave * hi StatusLine ctermbg=white ctermfg=black
+
+" Min height and width for a window, useful for the autocmd that follows
+set winwidth=15
+set winminwidth=15
+set winheight=5
+set winminheight=5
+
+" Resize current window automatically to fill the max. available space
+" Space is set by the variables above
+map <leader>f :call CenterCurrentWindow()<cr>
+map <leader>= <c-w>=
+
+function! CenterCurrentWindow()
+  resize
+  vertical resize
+endfunction
 
 nnoremap <leader>ev <C-w>v<C-w>l:e $MYVIMRC<cr>
 nnoremap <leader><space> :nohl<cr>
@@ -141,4 +156,20 @@ map <F2> :NERDTreeFind<CR>
 map <F4> :BufExplorer<CR>
 map <F5> :let @* = expand("%:p")"<CR>
 set clipboard=unnamed
+set mouse=a
 nmap Q gqap<CR>
+
+function! GithubLink() range
+  let l:giturl = system('git config remote.origin.url')
+  let l:prefix = substitute(system('git rev-parse --show-prefix'), "\n", '', '')
+  let l:repo = get(split(matchstr(l:giturl, '\w\+\/[_-a-zA-Z0-9]\+\.git'), '\.'), 0)
+  let l:url = 'https://github.com/' . l:repo
+  let l:branch = get(split(substitute(system('git symbolic-ref HEAD'), "\n", '', '') , '/'), -1)
+  let l:filename = l:prefix . @%
+
+  let l:full = join([l:url, 'blob', l:branch, l:filename], '/')
+
+  let @* = l:full . '#L' . a:firstline . '-' . a:lastline
+endfunction
+
+noremap <Leader>gh :call GithubLink()<CR>
