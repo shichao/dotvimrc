@@ -141,7 +141,6 @@ endfunction
 
 nnoremap <leader>ev <C-w>v<C-w>l:e $MYVIMRC<cr>
 nnoremap <leader><space> :nohl<cr>
-nnoremap <leader>nf :NERDTreeFind<cr>
 inoremap jj <ESC>
 
 let g:rubycomplete_rails = 1
@@ -156,7 +155,7 @@ map <F2> :NERDTreeFind<CR>
 map <F4> :BufExplorer<CR>
 map <F5> :let @* = expand("%:p")"<CR>
 set clipboard=unnamed
-set mouse=a
+" set mouse=a
 nmap Q gqap<CR>
 
 function! GithubLink() range
