@@ -69,13 +69,13 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 set pastetoggle=<F2>
 
 " Color mappings.
-colorscheme github
+set background=light
+colorscheme solarized
 highlight SpellBad term=reverse ctermfg=White ctermbg=Red gui=undercurl guisp=Red
 
 map <leader>t :CommandT<cr>
 map <Leader>r <Plug>RubyTestRun " change from <Leader>t to <Leader>\
 map <Leader>R <Plug>RubyFileRun " change from <Leader>T to <Leader>]
-map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 map <leader>b :FufBuffer<cr>
 
 " Yank to clipboard
@@ -152,6 +152,8 @@ function! ShowFileInNERDTree()
     NERDTreeFind
   endif
 endfunction
+map <F2> :execute 'NERDTreeToggle ' . getcwd()<CR>
+map <leader>d :call ShowFileInNERDTree()<CR>
 
 let g:rubycomplete_rails = 1
 let g:CommandTMaxHeight=20
@@ -160,11 +162,10 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 map <leader>c :!ruby -c %<CR>
 map <F1> :CommandT<CR>
-map <F2> :call ShowFileInNERDTree()<CR>
 " map <F3> :TMiniBufExplorer<CR>
 map <F4> :BufExplorer<CR>
 map <F5> :let @* = expand("%:p")"<CR>
-set clipboard=unnamed
+" set clipboard=unnamed
 " set mouse=a
 nmap Q gqap<CR>
 
