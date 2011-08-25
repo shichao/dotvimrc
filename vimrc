@@ -168,6 +168,8 @@ map <F5> :let @* = expand("%:p")"<CR>
 " set clipboard=unnamed
 " set mouse=a
 nmap Q gqap<CR>
+vmap <C-c><C-x> "ry :call Send_to_Tmux('ruby `ack -l ' . @r . "`\n")<CR>
+nmap <C-c><C-x> "ry :call Send_to_Tmux('ruby ' . @% . "\n")<CR>
 
 function! GithubLink() range
   let l:giturl = system('git config remote.origin.url')
