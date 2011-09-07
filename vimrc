@@ -172,6 +172,18 @@ vmap <C-c><C-x> "ry :call Send_to_Tmux('ruby ' . @% . " -n /" . @r . "/\n")<CR>
 nmap <C-c><C-x> "ry :call Send_to_Tmux('ruby ' . @% . "\n")<CR>
 autocmd BufWritePre *.rb :%s/\s\+$//e
 
+if &term =~ "xterm.*"
+  let &t_ti = &t_ti . "\e[?2004h"
+  let &t_te = "\e[?2004l" . &t_te
+  function XTermPasteBegin(ret)
+    set pastetoggle=<Esc>[201~
+    set paste
+    return a:ret
+  endfunction
+  map <expr> <Esc>[200~ XTermPasteBegin("i")
+  imap <expr> <Esc>[200~ XTermPasteBegin("")
+endif
+
 function! GithubLink() range
   let l:giturl = system('git config remote.origin.url')
   let l:prefix = substitute(system('git rev-parse --show-prefix'), "\n", '', '')
