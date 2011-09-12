@@ -164,7 +164,8 @@ map <leader>c :!ruby -c %<CR>
 map <F1> :CommandT<CR>
 " map <F3> :TMiniBufExplorer<CR>
 map <F4> :BufExplorer<CR>
-map <F5> :let @* = expand("%:p")"<CR>
+" map <F5> :let @* = expand("%:p")"<CR>
+map <F5> :let @* = @%<CR>
 " set clipboard=unnamed
 " set mouse=a
 nmap Q gqap<CR>
@@ -172,17 +173,17 @@ vmap <C-c><C-x> "ry :call Send_to_Tmux('ruby ' . @% . " -n /" . @r . "/\n")<CR>
 nmap <C-c><C-x> "ry :call Send_to_Tmux('ruby ' . @% . "\n")<CR>
 autocmd BufWritePre *.rb :%s/\s\+$//e
 
-if &term =~ "xterm.*"
-  let &t_ti = &t_ti . "\e[?2004h"
-  let &t_te = "\e[?2004l" . &t_te
-  function XTermPasteBegin(ret)
-    set pastetoggle=<Esc>[201~
-    set paste
-    return a:ret
-  endfunction
-  map <expr> <Esc>[200~ XTermPasteBegin("i")
-  imap <expr> <Esc>[200~ XTermPasteBegin("")
-endif
+" if &term =~ "xterm.*"
+"   let &t_ti = &t_ti . "\\e[?2004h"
+"   let &t_te = "\\e[?2004l" . &t_te
+"   function! XTermPasteBegin(ret)
+"     set pastetoggle=<Esc>[201~
+"     set paste
+"     return a:ret
+"   endfunction
+"   map <expr> <Esc>[200~ XTermPasteBegin("i")
+"   imap <expr> <Esc>[200~ XTermPasteBegin("")
+" endif
 
 function! GithubLink() range
   let l:giturl = system('git config remote.origin.url')
