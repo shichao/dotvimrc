@@ -44,9 +44,6 @@ map <leader>d :call ShowFileInNERDTree()<CR>
 "" Yankring
 let g:yankring_history_file = '.yankring_history'
 
-"" Copy file path to clipboard
-map <F5> :let @* = @%<CR>
-
 "" Pane switching shortcuts
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -57,3 +54,11 @@ nnoremap <C-l> <C-w>l
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
 set wildignore+=vendor,log,tmp,*.swp,.git,gems,.bundle,Gemfile.lock,.gem,.rvmrc
+
+"" Misc shortcuts
+nnoremap <leader><space> :nohl<cr> " un-highlight search results
+map <F5> :let @* = @%<CR>         " Copy file path to clipboard
+
+"" Trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
