@@ -28,3 +28,9 @@
 [submodule "bundle/Command-T"]
 	path = bundle/Command-T
 	url = https://github.com/wincent/Command-T.git
+[submodule "bundle/vim-ruby"]
+	path = bundle/vim-ruby
+	url = git://github.com/vim-ruby/vim-ruby.git
+[submodule "bundle/tcomment_vim"]
+	path = bundle/tcomment_vim
+	url = git://github.com/tomtom/tcomment_vim.git
