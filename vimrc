@@ -49,16 +49,22 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+nnoremap <leader>w :vsplit<cr>  " Split pane vertically
 
 "" Wild stuff
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
 set wildignore+=vendor,log,tmp,*.swp,.git,gems,.bundle,Gemfile.lock,.gem,.rvmrc
 
-"" Misc shortcuts
-nnoremap <leader><space> :nohl<cr> " un-highlight search results
-map <F5> :let @* = @%<CR>         " Copy file path to clipboard
+" double percentage sign in command mode is expanded
+" to directory of current file - http://vimcasts.org/e/14
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 "" Trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
+
+"" Misc shortcuts
+nnoremap <leader><space> :nohl<cr> " un-highlight search results
+map <F5> :let @* = @%<CR>          " Copy file path to clipboard
+map <leader>T :CommandTFlush<cr>\|:CommandT %%<cr> " Open CommandT
