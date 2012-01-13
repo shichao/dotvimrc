@@ -4,6 +4,7 @@ syntax enable
 set encoding=utf-8
 set showcmd                     " display incomplete commands
 filetype plugin indent on       " load file type plugins + indentation
+set laststatus=2                " Always show the statusline
 
 "" Whitespace
 set nowrap                      " don't wrap lines
