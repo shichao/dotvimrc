@@ -54,7 +54,7 @@ nnoremap <leader>w :vsplit<cr>  " Split pane vertically
 "" Wild stuff
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
-set wildignore+=vendor,log,tmp,*.swp,.git,gems,.bundle,Gemfile.lock,.gem,.rvmrc
+set wildignore+=vendor,log,tmp,*.swp,.git,gems,.bundle,Gemfile.lock,.gem,.rvmrc,.gitignore,.DS_Store
 
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
