@@ -69,4 +69,3 @@ match ExtraWhitespace /\s\+$/
 nnoremap <leader><space> :nohl<cr> " un-highlight search results
 map <F5> :let @* = @%<cr>          " Copy file path to clipboard
 map <C-b> :CtrlPBuffer<cr>
-map <C-m> :CtrlPMRU<cr>
