@@ -40,7 +40,7 @@ function! ShowFileInNERDTree()
     NERDTreeFind
   endif
 endfunction
-map <leader>d :call ShowFileInNERDTree()<CR>
+map <leader>d :call ShowFileInNERDTree()<cr>
 
 "" Yankring
 let g:yankring_history_file = '.yankring_history'
@@ -67,6 +67,6 @@ match ExtraWhitespace /\s\+$/
 
 "" Misc shortcuts
 nnoremap <leader><space> :nohl<cr> " un-highlight search results
-map <F5> :let @* = @%<CR>          " Copy file path to clipboard
+map <F5> :let @* = @%<cr>          " Copy file path to clipboard
 map <C-b> :CtrlPBuffer<cr>
 map <C-m> :CtrlPMRU<cr>
