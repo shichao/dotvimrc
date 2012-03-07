@@ -68,4 +68,5 @@ match ExtraWhitespace /\s\+$/
 "" Misc shortcuts
 nnoremap <leader><space> :nohl<cr> " un-highlight search results
 map <F5> :let @* = @%<cr>          " Copy file path to clipboard
-map <C-b> :CtrlPBuffer<cr>
+map <leader>p :CtrlP<cr>
+map <leader>b :CtrlPBuffer<cr>
